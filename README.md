@@ -1,5 +1,5 @@
 # NRKD-master
-This code implements a new similarity-based knowledge distillation method hat transfers neighbourhood relationship knowledge by selecting K-nearest neighbours for each sample.
+This code implements a new similarity-based knowledge distillation method that transfers neighbourhood relationship knowledge by selecting K-nearest neighbours for each sample.
 
 train a teacher model:
 
