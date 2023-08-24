@@ -11,7 +11,7 @@ This code implements a new similarity-based knowledge distillation method that t
 
 
  ```
- #train a student model:
+ #training a student model:
  python train_student.py --teacher resnet32x4 --checkpoints checkpoints/cifar100/resnet32x4.pth --student resnet8x4 --dataset cifar100 --epochs 240 --lr_decay_epochs 150,180,210 --learning_rate 0.05 --batch_size 64
 
 ```
