@@ -5,6 +5,6 @@ train a teacher model:
 
  `python train_teacher.py --model resnet32x4 --dataset cifar100 --epochs 240 --lr_decay_epochs 150,180,210 --learning_rate 0.05 --batch_size 64`
 
-traini a student model:
+train a student model:
 
   `python train_student.py --teacher resnet32x4 --checkpoints checkpoints/cifar100/resnet32x4.pth --student resnet8x4 --dataset cifar100 --epochs 240 --lr_decay_epochs 150,180,210 --learning_rate 0.05 --batch_size 64`
