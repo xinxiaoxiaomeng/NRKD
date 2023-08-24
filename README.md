@@ -1,12 +1,12 @@
 # NRKD-master
 This code implements a new similarity-based knowledge distillation method that transfers neighbourhood relationship knowledge by selecting K-nearest neighbours for each sample.
 
-##Install
+## Install
     ```
    git clone https://github.com/xinxiaoxiaomeng/NRKD-master.git
     ```
 
-##Run
+## Run
 
  ```
  #training a teacher model:
