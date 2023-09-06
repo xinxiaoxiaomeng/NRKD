@@ -1,4 +1,4 @@
-# NRKD-master
+# NRKD
 This code implements a new similarity-based knowledge distillation method that transfers neighbourhood relationship knowledge by selecting K-nearest neighbours for each sample.
 
 ## Run
