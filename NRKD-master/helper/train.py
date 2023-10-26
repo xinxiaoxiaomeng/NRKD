@@ -74,7 +74,53 @@ def train(args, train_loader, module_list, optimizer, criterion_list):
 
 
 
+def train_vanilla(model, train_loader, criterion, optimizer):
+    losses = AverageMeter()
+    top1 = AverageMeter()
+    top5 = AverageMeter()
 
+    # 使用的损失函数
+    criterion_ce = criterion
+
+    model.train()
+    # print("训练：")
+    for inputs, targets in train_loader:
+        # print(inputs.size())
+        # print(targets.size())
+        # 使用GPU
+        inputs, targets = inputs.cuda(), targets.cuda()
+        # 获得输出
+        outputs = model(inputs)
+        # print(outputs.size())
+        # 与GT的损失
+        loss_ce = criterion_ce(outputs, targets)
+
+        # 当前批次的损失值
+        loss = loss_ce
+        # 优化器的梯度置0
+        optimizer.zero_grad()
+        # 计算梯度
+        loss.backward()
+        # 更新参数
+        optimizer.step()
+
+        # 计算学生网络当前epoch的top1精度， top5精度
+        acc1, acc5 = accuracy(outputs, targets, topk=(1, 5))
+
+        # 计算当前epoch的损失和精度
+        batch_size = targets.size(0)
+        losses.update(loss.item(), batch_size)
+        top1.update(acc1.item(), batch_size)
+        top5.update(acc5.item(), batch_size)
+
+    loss_dict = {
+        "loss_ce": losses.avg
+    }
+    acc_dict = {
+        "top1": top1.avg,
+        "top5": top5.avg,
+    }
+    return loss_dict, acc_dict
 
 
 
